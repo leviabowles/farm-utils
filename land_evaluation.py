@@ -1,3 +1,4 @@
+import random 
 class land():
     def __init__(self,
                 crop_revenue_mu,
@@ -32,3 +33,11 @@ class land():
         profit = self.annual_profit()
         max_value = profit/irr
         print(max_value)
+
+    def prob_profit(self):
+        profit = ((random.normalvariate(mu = self.crop_revenue_mu, sigma = self.crop_revenue_sig) + 
+                  random.normalvariate(mu = self.non_crop_revenue_mu, sigma = self.non_crop_revenue_sig)) -
+                  ((random.normalvariate(mu = self.crop_cogs_mu, sigma = self.crop_cogs_sig) + 
+                  random.normalvariate(mu = self.non_crop_cogs_mu, sigma = self.non_crop_cogs_sig))))
+        profit = profit * self.crop_acres
+        return(profit)
