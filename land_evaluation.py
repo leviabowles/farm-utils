@@ -29,6 +29,6 @@ class land():
         return(profit)
     
     def simple_valuator(self, irr):
-        profit = self.annual_profit(self)
+        profit = self.annual_profit()
         max_value = profit/irr
         print(max_value)
