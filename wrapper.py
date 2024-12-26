@@ -6,9 +6,4 @@ farm = land_evaluation.land(crop_revenue_mu = 120, crop_revenue_sig = 30, crop_c
 farm.annual_profit()
 farm.simple_valuator(irr = .03)
 
-x = []
-for i in range(5000000):
-    x.append(farm.prob_profit())
-    #print(x)
-
-statistics.mean(x)
+farm.prob_multiyear_profit(years = 20)
