@@ -1,4 +1,6 @@
 import random 
+import statistics
+
 class land():
     def __init__(self,
                 crop_revenue_mu,
@@ -41,3 +43,16 @@ class land():
                   random.normalvariate(mu = self.non_crop_cogs_mu, sigma = self.non_crop_cogs_sig))))
         profit = profit * self.crop_acres
         return(profit)
+    
+    def prob_multiyear_profit(self, years = 20):
+        lend = []
+        x = []
+        for i in range(years):
+            x.append(self.prob_profit())
+        
+        print(statistics.mean(x))
+        
+        
+
+
+
