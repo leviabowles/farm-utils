@@ -53,7 +53,9 @@ class land():
         return(profit)
     
     def prob_field_value(self):
-        self.pred_field_value =  self.pred_field_value* random.normalvariate(mu = self.inflation_land_mu , sigma = self.inflation_land_sig )
+        self.pred_field_value = (self.pred_field_value + 
+                                 self.pred_field_value * 
+                                 random.normalvariate(mu = self.inflation_land_mu , sigma = self.inflation_land_sig ))
         
         return(self.pred_field_value)
     
