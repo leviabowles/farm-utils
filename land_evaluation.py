@@ -1,5 +1,6 @@
 import random 
 import statistics
+import pandas as pd
 
 class land():
     def __init__(self,
@@ -34,7 +35,7 @@ class land():
     def simple_valuator(self, irr):
         profit = self.annual_profit()
         max_value = profit/irr
-        print(max_value)
+        return(max_value)
 
     def prob_profit(self):
         profit = ((random.normalvariate(mu = self.crop_revenue_mu, sigma = self.crop_revenue_sig) + 
@@ -45,12 +46,13 @@ class land():
         return(profit)
     
     def prob_multiyear_profit(self, years = 20):
-        lend = []
+
         x = []
         for i in range(years):
             x.append(self.prob_profit())
         
-        print(statistics.mean(x))
+        x.append(statistics.mean(x))
+        return(x)
         
         
 
