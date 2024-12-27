@@ -31,6 +31,7 @@ class land():
         self.inflation_land_mu = inflation_land_mu
         self.inflation_land_sig = inflation_land_sig
         self.field_paid = field_paid
+        self.pred_field_value = self.field_paid
 
     
     def annual_profit(self):
