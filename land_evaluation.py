@@ -66,10 +66,10 @@ class land():
         self.pred_field_value = self.field_paid
         for i in range(years):
             x.append(self.prob_profit())
-            value.append(self.prob_field_value)
+            value.append(self.prob_field_value())
         
-        #x.append(statistics.mean(x))
-        #value.append(statistics.mean(value))
+        x.append(statistics.mean(x))
+        value.append(statistics.mean(value))
         return(x, value)
         
         
