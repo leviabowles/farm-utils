@@ -1,6 +1,5 @@
 import random 
 import statistics
-import pandas as pd
 
 class land():
     def __init__(self,
