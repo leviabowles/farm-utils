@@ -15,5 +15,6 @@ class commodity_forecast:
 
     def auto_arima(self):
         self.aa = pm.auto_arima(self.df['price'], error_action='ignore', seasonal=True, m=12)
+        print(self.aa.params())
 
 
