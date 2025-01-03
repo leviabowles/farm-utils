@@ -22,8 +22,8 @@ class commodity_forecast:
         return(pred)
       
     def roll_forward(self, min_start, iter_width):
+        self.eva =pd.DataFrame(columns=['iteration', 'forward_period', 'price', 'pred'])
         for i in range(min_start,len(self.df.index)):
-            print(i)
             print(self.df.iloc[0:i+1,])
             print(self.df.iloc[i+1:i+13,])
 
