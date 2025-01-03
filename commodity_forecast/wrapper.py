@@ -8,4 +8,4 @@ mod.monthitize()
 
 mod.auto_arima()
 
-mod.forecast_next(periods = 3)
+mod.forecast_next(periods = 12)

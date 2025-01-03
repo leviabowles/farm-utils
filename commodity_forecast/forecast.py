@@ -20,5 +20,11 @@ class commodity_forecast:
     def forecast_next(self, periods):
         pred = self.aa.fit_predict(y = self.df['price'],n_periods = periods)
         return(pred)
+      
+    def roll_forward(self, min_start, iter_width):
+        for i in range(min_start,len(self.df.index)):
+            print(i)
+            print(self.df.iloc[0:i+1,])
+            print(self.df.iloc[i+1:i+13,])
 
 
