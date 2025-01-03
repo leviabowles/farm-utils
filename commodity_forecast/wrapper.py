@@ -6,5 +6,6 @@ mod = forecast.commodity_forecast(path = path)
 
 mod.monthitize()
 
-
 mod.auto_arima()
+
+mod.forecast_next(periods = 3)

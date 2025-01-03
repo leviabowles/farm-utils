@@ -16,5 +16,9 @@ class commodity_forecast:
     def auto_arima(self):
         self.aa = pm.auto_arima(self.df['price'], error_action='ignore', seasonal=True, m=12)
         print(self.aa.params())
+        
+    def forecast_next(self, periods):
+        pred = self.aa.fit_predict(y = self.df['price'],n_periods = periods)
+        return(pred)
 
 
