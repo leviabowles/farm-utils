@@ -6,8 +6,8 @@ mod = forecast.commodity_forecast(path = path)
 
 mod.monthitize()
 
-mod.auto_arima()
+model = forecast.auto_arima(mod.df['price'])
 
-mod.forecast_next(periods = 12)
+forecast.forecast_next(model, mod.df['price'], periods = 12)
 
 mod.roll_forward(24,1)
