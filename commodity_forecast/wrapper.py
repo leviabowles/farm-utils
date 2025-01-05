@@ -9,3 +9,5 @@ mod.monthitize()
 mod.auto_arima()
 
 mod.forecast_next(periods = 12)
+
+mod.roll_forward(24,1)
