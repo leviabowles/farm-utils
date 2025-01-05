@@ -1,7 +1,14 @@
 import pmdarima as pm
 import pandas as pd
 
+def forecast_next(data, periods):
+    pred = self.aa.fit_predict(y = data,n_periods = periods)
+    return(pred)
 
+def auto_arima(data):
+    aa = pm.auto_arima(data, error_action='ignore', seasonal=True, m=12)
+    print(aa.params())
+    return(aa)
 
 class commodity_forecast:
     
@@ -13,14 +20,6 @@ class commodity_forecast:
         self.df['date'] = self.df['date'].dt.to_period('M')
         self.df = self.df.groupby(['date']).mean()
 
-    def auto_arima(self):
-        self.aa = pm.auto_arima(self.df['price'], error_action='ignore', seasonal=True, m=12)
-        print(self.aa.params())
-        
-    def forecast_next(self, periods):
-        pred = self.aa.fit_predict(y = self.df['price'],n_periods = periods)
-        return(pred)
-      
     def roll_forward(self, min_start, iter_width):
         self.eva =pd.DataFrame(columns=['iteration', 'forward_period', 'price', 'pred'])
         for i in range(min_start,len(self.df.index)):
