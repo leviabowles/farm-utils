@@ -2,7 +2,7 @@ import pmdarima as pm
 import pandas as pd
 
 def forecast_next(model, data, periods):
-    pred = fit_predict(model, y = data,n_periods = periods)
+    pred = model.fit_predict(y = data,n_periods = periods)
     return(pred)
 
 def auto_arima(data):
