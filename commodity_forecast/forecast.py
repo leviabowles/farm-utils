@@ -19,6 +19,7 @@ class commodity_forecast:
         self.df['date'] = pd.to_datetime(self.df['date'])
         self.df['date'] = self.df['date'].dt.to_period('M')
         self.df = self.df.groupby(['date']).mean()
+        print('group by complete at month level')
 
     def roll_forward(self, min_start, iter_width):
         self.eva =pd.DataFrame(columns=['iteration', 'forward_period', 'price', 'pred'])
