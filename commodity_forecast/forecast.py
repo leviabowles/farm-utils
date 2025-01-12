@@ -13,6 +13,8 @@ def auto_arima(data):
   
 def model_wrapper(data, fit):
     model = pm.arima(data, order=fit.get_params().get("order"))
+    print(model.summary())
+    return(model)
 
 class commodity_forecast:
     
