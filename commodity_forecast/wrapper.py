@@ -8,6 +8,6 @@ mod.monthitize()
 
 model = forecast.auto_arima(mod.df['price'])
 
-forecast.forecast_next(model, mod.df['price'], periods = 12)
+forecast.forecast_next(model, mod.df['price'], periods = 60)
 
 mod.roll_forward(24,1)

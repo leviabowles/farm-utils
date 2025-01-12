@@ -8,7 +8,11 @@ def forecast_next(model, data, periods):
 def auto_arima(data):
     aa = pm.auto_arima(data, error_action='ignore', seasonal=True, m=12)
     print(aa.params())
+    print(aa.summary())
     return(aa)
+  
+def model_wrapper(data, fit):
+    model = pm.arima(data, order=fit.get_params().get("order"))
 
 class commodity_forecast:
     
