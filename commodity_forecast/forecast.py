@@ -12,7 +12,7 @@ def auto_arima(data):
     return(aa)
   
 def model_wrapper(data, fit):
-    model = pm.arima.ARIMA(data, order=fit.get_params().get("order"))
+    model = pm.arima.ARIMA(order=fit.get_params().get("order")).fit(data)
     print(model.summary())
     return(model)
 
