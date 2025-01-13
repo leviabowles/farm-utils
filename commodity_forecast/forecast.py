@@ -18,7 +18,7 @@ def model_wrapper(data, fit):
 
 class back_test:
     
-    def __init__(self, slices, slices_forward)
+    def __init__(self, slices, slices_forward):
         self.slices = slices
         self.slices_forward = slices_forward
 
@@ -37,7 +37,7 @@ class commodity_forecast:
     def roll_forward(self, min_start, iter_width):
         self.eva =pd.DataFrame(columns=['iteration', 'forward_period', 'price', 'pred'])
         slices = {}
-        slices_forward {}
+        slices_forward = {}
         for i in range(min_start,len(self.df.index)):
             print(self.df.iloc[0:i+1,])
             slices[i] = self.df.iloc[0:i+1,]
