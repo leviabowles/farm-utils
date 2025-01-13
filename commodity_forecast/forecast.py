@@ -44,6 +44,6 @@ class commodity_forecast:
             print(self.df.iloc[i+1:i+13,])
             slices_forward[i] = self.df.iloc[i+1:i+13,]
             
-        self.back_test = forecast.back_test(slices = slices, slices_forward = slices_forward)
+        self.back_test = back_test(slices = slices, slices_forward = slices_forward)
         return(self.back_test)
 
