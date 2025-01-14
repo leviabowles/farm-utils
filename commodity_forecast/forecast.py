@@ -25,8 +25,9 @@ class back_test:
     def model_slices(self, model):
         for i in self.slices:
             inmod = forecast.model_wrapper(f.slices[i],model)
-            
-            print(dd.summary)
+            pred = forecast_next(inmod, f.slices[i], 12)
+            print(inmod.summary)
+            print(pred)
             
 
 
