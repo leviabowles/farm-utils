@@ -21,6 +21,13 @@ class back_test:
     def __init__(self, slices, slices_forward):
         self.slices = slices
         self.slices_forward = slices_forward
+        
+    def model_slices(self, model):
+        for i in self.slices:
+            inmod = forecast.model_wrapper(f.slices[i],model)
+            
+            print(dd.summary)
+            
 
 
 class commodity_forecast:
