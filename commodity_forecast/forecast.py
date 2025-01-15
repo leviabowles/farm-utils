@@ -23,9 +23,13 @@ class back_test:
         self.slices_forward = slices_forward
         
     def model_slices(self, model):
+        
+        self.predictions = {}
+        
         for i in self.slices:
             inmod = model_wrapper(self.slices[i],model)
             pred = forecast_next(inmod, self.slices[i], 12)
+            self.predictions[i] = pred
             print(inmod.summary)
             print(pred)
             
