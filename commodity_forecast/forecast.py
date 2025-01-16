@@ -7,7 +7,7 @@ def forecast_next(model, data, periods):
 
 def auto_arima(data):
     aa = pm.auto_arima(data, error_action='ignore', seasonal=True, m=12)
-    print(aa.params())
+    #print(aa.params())
     print(aa.summary())
     return(aa)
   
@@ -30,9 +30,12 @@ class back_test:
             inmod = model_wrapper(self.slices[i],model)
             pred = forecast_next(inmod, self.slices[i], 12)
             self.predictions[i] = pred
-            print(inmod.summary)
-            print(pred)
+            #print(inmod.summary)
+            #print(pred)
             
+        for j in self.predictions:
+            merged = pd.merge(self.predictions[i], self.slices_forward[i])
+            self.predictions[i] = merged
 
 
 class commodity_forecast:
@@ -51,9 +54,9 @@ class commodity_forecast:
         slices = {}
         slices_forward = {}
         for i in range(min_start,len(self.df.index)):
-            print(self.df.iloc[0:i+1,])
+            #print(self.df.iloc[0:i+1,])
             slices[i] = self.df.iloc[0:i+1,]
-            print(self.df.iloc[i+1:i+13,])
+            #print(self.df.iloc[i+1:i+13,])
             slices_forward[i] = self.df.iloc[i+1:i+13,]
             
         self.back_test = back_test(slices = slices, slices_forward = slices_forward)
