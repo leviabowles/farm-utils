@@ -6,19 +6,24 @@ def forecast_next(model, data, periods):
     return(pred)
 
 def auto_arima(data):
+    
     aa = pm.auto_arima(data, error_action='ignore', seasonal=True, m=12)
     #print(aa.params())
+    
     print(aa.summary())
     return(aa)
   
 def model_wrapper(data, fit):
+    
     model = pm.arima.ARIMA(order=fit.get_params().get("order")).fit(data)
+    
     print(model.summary())
     return(model)
 
 class back_test:
     
     def __init__(self, slices, slices_forward):
+        
         self.slices = slices
         self.slices_forward = slices_forward
         
@@ -34,9 +39,9 @@ class back_test:
             #print(pred)
             
         for j in self.predictions:
-            self.predictions.name = "predicted"
-            self.predictions.name = "actuals"
-            merged = pd.merge(self.predictions[i], self.slices_forward[i])
+            self.predictions[i].name = "predicted"
+            self.predictions[i].name = "actuals"
+            merged = pd.merge(self.predictions[i], self.slices_forward[i], left_index = True, right_index = True)
             self.predictions[i] = merged
 
 
