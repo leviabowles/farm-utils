@@ -34,6 +34,8 @@ class back_test:
             #print(pred)
             
         for j in self.predictions:
+            self.predictions.name = "predicted"
+            self.predictions.name = "actuals"
             merged = pd.merge(self.predictions[i], self.slices_forward[i])
             self.predictions[i] = merged
 
