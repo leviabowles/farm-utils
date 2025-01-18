@@ -13,11 +13,13 @@ def auto_arima(data):
     print(aa.summary())
     return(aa)
   
-def model_wrapper(data, fit):
+def model_wrapper(data, fit, verbose = False):
     
     model = pm.arima.ARIMA(order=fit.get_params().get("order")).fit(data)
     
-    print(model.summary())
+    if verbose: 
+      print(model.summary())
+    
     return(model)
 
 class back_test:
@@ -32,7 +34,7 @@ class back_test:
         self.predictions = {}
         
         for i in self.slices:
-            inmod = model_wrapper(self.slices[i],model)
+            inmod = model_wrapper(data = self.slices[i],fit = model)
             pred = forecast_next(inmod, self.slices[i], 12)
             self.predictions[i] = pred
             #print(inmod.summary)
@@ -40,7 +42,7 @@ class back_test:
             
         for j in self.predictions:
             self.predictions[i].name = "predicted"
-            self.predictions[i].name = "actuals"
+            self.slices_forward[i].name = "actuals"
             merged = pd.merge(self.predictions[i], self.slices_forward[i], left_index = True, right_index = True)
             self.predictions[i] = merged
 
