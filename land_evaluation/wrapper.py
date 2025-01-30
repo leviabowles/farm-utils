@@ -8,4 +8,4 @@ farm.simple_valuator(irr = .03)
 
 farm.prob_field_value()
 
-n, y = farm.prob_multiyear_profit(years = 10)
+profit, value = farm.prob_multiyear_profit(years = 10)
