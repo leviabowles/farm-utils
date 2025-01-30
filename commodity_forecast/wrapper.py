@@ -14,4 +14,6 @@ mod.back_test.model_slices(model)
 
 
 
-
+i = 101
+mod.back_test.predictions[i].name = 'fuck'
+merged = pd.merge(mod.back_test.predictions[i], mod.back_test.slices_forward[i], left_index = True, right_index = True)
