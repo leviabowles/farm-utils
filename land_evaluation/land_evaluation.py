@@ -52,6 +52,11 @@ class land():
         profit = profit * self.crop_acres
         return(profit)
     
+class land_simulator(land):
+
+    def __init__(self, id):
+        self.id = id
+
     def prob_field_value(self):
         self.pred_field_value = (self.pred_field_value + 
                                  self.pred_field_value * 
