@@ -6,6 +6,8 @@ farm = land_evaluation.land(crop_revenue_mu = 120, crop_revenue_sig = 30, crop_c
 farm.annual_profit()
 farm.simple_valuator(irr = .03)
 
-farm.prob_field_value()
+simulator = land_evaluation.land_simulator(farm,3)
 
-profit, value = farm.prob_multiyear_profit(years = 10)
+simulator.prob_field_value()
+
+profit, value = simulator.prob_multiyear_profit(years = 10)

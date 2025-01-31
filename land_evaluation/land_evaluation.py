@@ -1,5 +1,6 @@
 import random 
 import statistics
+import pandas as pd
 
 class land():
     def __init__(self,
@@ -75,10 +76,14 @@ class land_simulator(land):
         for i in range(years):
             x.append(self.prob_profit())
             value.append(self.prob_field_value())
+
+        df = pd.DataFrame({'year':range(years),
+                           'profit':x,
+                           'field_value':value})
         
-        x.append(statistics.mean(x))
-        value.append(statistics.mean(value))
-        return(x, value)
+        #x.append(statistics.mean(x))
+        #value.append(statistics.mean(value))
+        return(x, value, df)
         
         
 
