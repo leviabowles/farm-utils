@@ -46,30 +46,32 @@ class land():
 
 class land_simulator(land):
 
-    def __init__(self, id):
+    def __init__(self, current_land:land, id):
         self.id = id
+        self.current_land = current_land
+        
 
     def prob_profit(self):
-        profit = ((random.normalvariate(mu = self.crop_revenue_mu, sigma = self.crop_revenue_sig) + 
-                  random.normalvariate(mu = self.non_crop_revenue_mu, sigma = self.non_crop_revenue_sig)) -
-                  ((random.normalvariate(mu = self.crop_cogs_mu, sigma = self.crop_cogs_sig) + 
-                  random.normalvariate(mu = self.non_crop_cogs_mu, sigma = self.non_crop_cogs_sig))))
-        profit = profit * self.crop_acres
+        profit = ((random.normalvariate(mu = self.current_land.crop_revenue_mu, sigma = self.current_land.crop_revenue_sig) + 
+                  random.normalvariate(mu = self.current_land.non_crop_revenue_mu, sigma = self.current_land.non_crop_revenue_sig)) -
+                  ((random.normalvariate(mu = self.current_land.crop_cogs_mu, sigma = self.current_land.crop_cogs_sig) + 
+                  random.normalvariate(mu = self.current_land.non_crop_cogs_mu, sigma = self.current_land.non_crop_cogs_sig))))
+        profit = profit * self.current_land.crop_acres
         return(profit)
     
 
     def prob_field_value(self):
-        self.pred_field_value = (self.pred_field_value + 
-                                 self.pred_field_value * 
-                                 random.normalvariate(mu = self.inflation_land_mu , sigma = self.inflation_land_sig ))
+        self.current_land.pred_field_value = (self.current_land.pred_field_value + 
+                                 self.current_land.pred_field_value * 
+                                 random.normalvariate(mu = self.current_land.inflation_land_mu , sigma = self.current_land.inflation_land_sig ))
         
-        return(self.pred_field_value)
+        return(self.current_land.pred_field_value)
     
     def prob_multiyear_profit(self, years = 20):
 
         x = []
         value = []
-        self.pred_field_value = self.field_paid
+        self.current_land.pred_field_value = self.current_land.field_paid
         for i in range(years):
             x.append(self.prob_profit())
             value.append(self.prob_field_value())
