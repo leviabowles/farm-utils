@@ -77,13 +77,26 @@ class land_simulator(land):
             x.append(self.prob_profit())
             value.append(self.prob_field_value())
 
-        df = pd.DataFrame({'year':range(years),
+        self.annual_df = pd.DataFrame({'year':range(years),
                            'profit':x,
                            'field_value':value})
         
         #x.append(statistics.mean(x))
         #value.append(statistics.mean(value))
-        return(x, value, df)
+        return(x, value, self.annual_df)
+    
+    def multiyear_summary(self):
+        field_appreciation = self.annual_df['field_value'].iloc[-1] = self.current_land.field_paid
+        profit = self.annual_df['x'].sum()
+
+        print(field_appreciation)
+        print(profit)
+        print(field_appreciation + profit)
+
+
+
+    
+
         
         
 
