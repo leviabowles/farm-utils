@@ -44,6 +44,11 @@ class land():
         max_value = profit/irr
         return(max_value)
 
+class land_simulator(land):
+
+    def __init__(self, id):
+        self.id = id
+
     def prob_profit(self):
         profit = ((random.normalvariate(mu = self.crop_revenue_mu, sigma = self.crop_revenue_sig) + 
                   random.normalvariate(mu = self.non_crop_revenue_mu, sigma = self.non_crop_revenue_sig)) -
@@ -52,10 +57,6 @@ class land():
         profit = profit * self.crop_acres
         return(profit)
     
-class land_simulator(land):
-
-    def __init__(self, id):
-        self.id = id
 
     def prob_field_value(self):
         self.pred_field_value = (self.pred_field_value + 
