@@ -107,6 +107,7 @@ class land_simulator(land):
         return(x, value, self.annual_df)
     
     def multiyear_summary(self):
+        
         '''
         Takes annualized DF and aggregates, then runs profit calculations.
         '''
