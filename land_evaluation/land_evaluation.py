@@ -59,6 +59,7 @@ class land_simulator(land):
 
     def prob_profit(self):
         '''
+        TO DO: scale variance to grow profit over time
         This is a simulator that uses simple gaussian variance each year.
         I could have tore these apart a little more and may do that later. 
         '''
@@ -71,6 +72,10 @@ class land_simulator(land):
     
 
     def prob_field_value(self):
+        '''
+        simple next-value-up estimator for data.
+        '''
+        
         self.current_land.pred_field_value = (self.current_land.pred_field_value + 
                                  self.current_land.pred_field_value * 
                                  random.normalvariate(mu = self.current_land.inflation_land_mu , sigma = self.current_land.inflation_land_sig ))
