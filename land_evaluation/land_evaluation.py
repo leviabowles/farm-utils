@@ -36,6 +36,11 @@ class land():
 
     
     def annual_profit(self):
+        '''
+        Simple method to evaluate annual profit based on crop sales.
+        This is really a cash-flow methodology.
+        Could add a switch to estimate central estimate of appreciation.
+        '''
         profit = (self.crop_revenue_mu + self.non_crop_revenue_mu) - (self.crop_cogs_mu + self.non_crop_cogs_mu)
         profit = profit * self.crop_acres
         return(profit)
@@ -53,6 +58,10 @@ class land_simulator(land):
         
 
     def prob_profit(self):
+        '''
+        This is a simulator that uses simple gaussian variance each year.
+        I could have tore these apart a little more and may do that later. 
+        '''
         profit = ((random.normalvariate(mu = self.current_land.crop_revenue_mu, sigma = self.current_land.crop_revenue_sig) + 
                   random.normalvariate(mu = self.current_land.non_crop_revenue_mu, sigma = self.current_land.non_crop_revenue_sig)) -
                   ((random.normalvariate(mu = self.current_land.crop_cogs_mu, sigma = self.current_land.crop_cogs_sig) + 
