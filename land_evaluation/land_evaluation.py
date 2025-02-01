@@ -100,7 +100,7 @@ class land_simulator(land):
         total_returns = profit + field_appreciation
 
         ratio_return = (self.current_land.field_paid + total_returns)/self.current_land.field_paid
-        years = self.annual_df.count()
+        years = len(self.annual_df.index)
         annualized_return = ratio_return ** (1/years)
 
         #print(field_appreciation)
