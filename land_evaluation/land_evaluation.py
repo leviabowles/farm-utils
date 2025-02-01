@@ -88,7 +88,9 @@ class land_simulator(land):
         return(self.current_land.pred_field_value)
     
     def prob_multiyear_profit(self, years = 20):
-
+        '''
+        Multi year simulator that iterates over years and calls annual simulation calls.
+        '''
         x = []
         value = []
         self.current_land.pred_field_value = self.current_land.field_paid
@@ -116,7 +118,7 @@ class land_simulator(land):
         #print(field_appreciation)
         #print(profit)
         #print(field_appreciation + profit)
-        print(annualized_return)
+        return(annualized_return)
         
 
 
