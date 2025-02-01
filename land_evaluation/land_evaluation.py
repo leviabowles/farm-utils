@@ -107,6 +107,10 @@ class land_simulator(land):
         return(x, value, self.annual_df)
     
     def multiyear_summary(self):
+        '''
+        Takes annualized DF and aggregates, then runs profit calculations.
+        '''
+
         field_appreciation = self.annual_df['field_value'].iloc[-1] - self.current_land.field_paid
         profit = self.annual_df['profit'].sum()
         total_returns = profit + field_appreciation
