@@ -37,6 +37,7 @@ class land():
     
     def annual_profit(self):
         '''
+        TO DO: add method to account for annualized crop inflation
         Simple method to evaluate annual profit based on crop sales.
         This is really a cash-flow methodology.
         Could add a switch to estimate central estimate of appreciation.
@@ -46,6 +47,10 @@ class land():
         return(profit)
     
     def simple_valuator(self, irr):
+        '''
+        Valuation method working backwards from desired IRR
+        '''
+
         profit = self.annual_profit()
         max_value = profit/irr
         return(max_value)
