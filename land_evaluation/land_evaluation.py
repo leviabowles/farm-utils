@@ -143,7 +143,7 @@ class casino_carlo:
         returns_holder = []
         
         for i in range(self.iterations):
-            simulator = land_simulator(current_land=self.current_land)
+            simulator = land_simulator(current_land=self.current_land, id = i)
             simulator.prob_multiyear_profit(years = self.years)
             returns = simulator.multiyear_summary()
             returns_holder.append(returns)
