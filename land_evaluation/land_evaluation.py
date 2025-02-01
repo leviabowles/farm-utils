@@ -111,6 +111,11 @@ class land_simulator(land):
         Takes annualized DF and aggregates, then runs profit calculations.
         '''
 
+        try:
+            self.annual_df
+        except NameError:
+            print("Have not simulated profit yet try running prob_multiyear_profit()")
+
         field_appreciation = self.annual_df['field_value'].iloc[-1] - self.current_land.field_paid
         profit = self.annual_df['profit'].sum()
         total_returns = profit + field_appreciation
