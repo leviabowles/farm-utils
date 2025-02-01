@@ -133,6 +133,10 @@ class land_simulator(land):
 
 class casino_carlo:
 
+    '''
+    Need to add in graphing capabilities as well as a few other metrics
+    '''
+
     def __init__(self, current_land:land, years = 10, iterations = 1000):
         self.years = years
         self.iterations = iterations
