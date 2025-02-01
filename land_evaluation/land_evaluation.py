@@ -129,6 +129,21 @@ class land_simulator(land):
         #print(profit)
         #print(field_appreciation + profit)
         return(annualized_return)
+    
+
+class casino_carlo:
+
+    def __init__(self, current_land:land, years = 10, iterations = 1000):
+        self.years = years
+        self.iterations = iterations
+        self.current_land = current_land
+
+    def run_iterations(self):
+
+        for i in range(self.iterations):
+            simulator = land_simulator(current_land=self.current_land)
+            simulator.prob_multiyear_profit(years = self.years)
+        
         
 
 
