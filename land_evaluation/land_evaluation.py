@@ -114,7 +114,7 @@ class land_simulator(land):
 
         try:
             self.annual_df
-        except NameError:
+        except:
             print("Have not simulated profit yet try running prob_multiyear_profit()")
 
         field_appreciation = self.annual_df['field_value'].iloc[-1] - self.current_land.field_paid
