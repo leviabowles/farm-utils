@@ -152,6 +152,8 @@ class casino_carlo:
             returns = simulator.multiyear_summary()
             returns_holder.append(returns)
         
+        returns_holder = pd.Series(returns_holder)
+
         return(returns_holder)
         
         
