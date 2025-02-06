@@ -5,8 +5,8 @@ farm = land_evaluation.land(crop_revenue_mu = 120, crop_revenue_sig = 30, crop_c
 casino = land_evaluation.casino_carlo(farm,years = 10, iterations = 100)
 z = casino.run_iterations()
 
-farm.annual_profit()
-farm.simple_valuator(irr = .03)
+farm.annual_profit(appreciation=True)
+farm.simple_valuator(irr = .03, appreciation=True)
 
 simulator = land_evaluation.land_simulator(farm,3)
 
