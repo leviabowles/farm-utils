@@ -51,12 +51,12 @@ class land():
 
         return(profit)
     
-    def simple_valuator(self, irr):
+    def simple_valuator(self, irr, appreciation = True):
         '''
         Valuation method working backwards from desired IRR
         '''
 
-        profit = self.annual_profit()
+        profit = self.annual_profit(appreciation=appreciation)
         max_value = profit/irr
         return(max_value)
 
