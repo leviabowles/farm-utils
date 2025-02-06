@@ -35,7 +35,7 @@ class land():
         self.pred_field_value = self.field_paid
 
     
-    def annual_profit(self):
+    def annual_profit(self, appreciation = False):
         '''
         TO DO: add method to account for annualized crop inflation
         Simple method to evaluate annual profit based on crop sales.
@@ -44,6 +44,11 @@ class land():
         '''
         profit = (self.crop_revenue_mu + self.non_crop_revenue_mu) - (self.crop_cogs_mu + self.non_crop_cogs_mu)
         profit = profit * self.crop_acres
+
+        if appreciation:
+            apprec = self.field_paid * self.inflation_land_mu
+            profit = apprec + profit 
+
         return(profit)
     
     def simple_valuator(self, irr):
