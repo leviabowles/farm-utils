@@ -14,10 +14,11 @@ class ts_prep:
     '''
     Beginner class to push data into time-series friendly format:
     1. Create lags prior to tensor creation.
-    2. 
+    2. bring in correct covariates in latency windows
+    3. Split into train/test by cut-date.
     '''
 
     def __init__(self, df, cut_date):
         self.df = df
         self.cut_date = cut_date
-        
+
