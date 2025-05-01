@@ -7,3 +7,17 @@ def data_reader(file):
     '''
     df = pd.read_csv(file)
     return(df)
+
+
+class ts_prep: 
+
+    '''
+    Beginner class to push data into time-series friendly format:
+    1. Create lags prior to tensor creation.
+    2. 
+    '''
+
+    def __init__(self, df, cut_date):
+        self.df = df
+        self.cut_date = cut_date
+        
