@@ -37,7 +37,7 @@ class land():
     
     def annual_profit(self, appreciation = False):
         '''
-        TO DO: add method to account for annualized crop inflation
+        TO DO: add method to account for annualized land inflation
         Simple method to evaluate annual profit based on crop sales.
         This is really a cash-flow methodology.
         Could add a switch to estimate central estimate of appreciation.
